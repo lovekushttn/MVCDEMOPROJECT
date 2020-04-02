@@ -1,0 +1,31 @@
+﻿@using MVCDEMO.Web.Models.Entity
+@model IEnumerable<Employee> 
+@{
+    Layout = null;
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    @foreach (var emp in Model)
+    {
+    <div>
+        <h1> Employee </h1>
+        <h2>Id</h2> : @emp.Id
+        <h2>Name</h2> : @string.Format("{0} {1}", emp.FirstName, emp.LastName)
+        <h6><a href="/Employee/Detail?empId=@emp.Id">Detail</a></h6>
+        @*<form action="/Employee/Detail" method="post">
+            <input type="hidden" value="@emp.Id" name="empId" />
+            <input type="submit"  text="Detail"/>
+        </form>*@
+    </div>
+    }
+    
+</body>
+</html>
