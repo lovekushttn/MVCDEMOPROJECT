@@ -1,0 +1,24 @@
+﻿@using MVCDEMO.Web.Models.Entity
+@model IEnumerable<Employee>
+@{
+   
+
+}
+
+    <div class="row">
+        @foreach (var emp in Model)
+        {
+
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Employee @emp.Id</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@string.Format("{0} {1}", emp.FirstName, emp.LastName)</h6>
+                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <a href="/Employee/Detail?empId=@emp.Id" class="card-link">Detail link</a>
+                    <a href="/Employee/Detail?empId=@emp.Id" class="card-link">Another link</a>
+                </div>
+            </div>
+
+
+        }
+    </div>

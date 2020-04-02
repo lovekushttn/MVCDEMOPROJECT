@@ -19,7 +19,7 @@ namespace MVCDEMO.Web.Controllers
         public ActionResult Index()
         {
             var result = employeeService.GetEmployees();
-            return View("_MainLayout");
+            return View("Home");
         }
         
 

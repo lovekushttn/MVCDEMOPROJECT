@@ -10,7 +10,7 @@ namespace MVCDEMO.Web.Controllers
 {
     public class EmployeeController : Controller
     {
-        readonly EmployeeService employeeService;
+        readonly IEmployeeService employeeService;
         public EmployeeController()
         {
             employeeService = new EmployeeService();
@@ -29,6 +29,11 @@ namespace MVCDEMO.Web.Controllers
             }
             //var empId = Convert.ToInt32(Request.Form["empId"]);
             
+        }
+        public ActionResult GetEmployees()
+        {
+            var result = employeeService.GetEmployees();
+            return View("Index", result);
         }
     }
 }

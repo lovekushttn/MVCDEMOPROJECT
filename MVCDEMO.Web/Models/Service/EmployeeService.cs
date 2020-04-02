@@ -38,7 +38,7 @@ namespace MVCDEMO.Web.Models.Service
         {
             return employees;
         }
-        public  virtual void Delete(int empId)
+        protected  virtual void Delete(int empId)
         {
             
         }
