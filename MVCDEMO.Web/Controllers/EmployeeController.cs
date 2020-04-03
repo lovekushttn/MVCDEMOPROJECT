@@ -1,4 +1,5 @@
-﻿using MVCDEMO.Web.Models.Interface;
+﻿using MVCDEMO.Web.Models.Entity;
+using MVCDEMO.Web.Models.Interface;
 using MVCDEMO.Web.Models.Service;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace MVCDEMO.Web.Controllers
             employeeService = new EmployeeService();
         }
         // GET: Employee
+        [AcceptVerbs(HttpVerbs.Put | HttpVerbs.Post | HttpVerbs.Put)]
         public ActionResult Detail(int? empId)
         {
             if (empId.HasValue)
@@ -25,15 +27,25 @@ namespace MVCDEMO.Web.Controllers
             }
             else
             {
-                return this.Content("Employee not found");
+                return RedirectToAction("Index", "Home");
+                //return this.Content("Employee not found");
             }
             //var empId = Convert.ToInt32(Request.Form["empId"]);
             
         }
+       // [Route("emps",Name ="Default3")]
+       // [ActionName("list")]
         public ActionResult GetEmployees()
         {
-            var result = employeeService.GetEmployees();
+            var result = GetEmployeeList();
             return View("Index", result);
         }
+        [NonAction]
+        public IEnumerable<Employee> GetEmployeeList()
+        {
+            var result = employeeService.GetEmployees();
+            return result;
+        }
+       
     }
 }

@@ -19,9 +19,13 @@ namespace MVCDEMO.Web.Controllers
         public ActionResult Index()
         {
             var result = employeeService.GetEmployees();
-            return View("Home");
+            return View("Home", "~/Views/Shared/_MainLayout.cshtml");
         }
-        
 
+        [ChildActionOnly]
+        public ActionResult GetSidebar()
+        {
+            return this.PartialView("_sidebar");
+        }
     }
 }

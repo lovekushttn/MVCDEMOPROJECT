@@ -12,12 +12,21 @@ namespace MVCDEMO.Web
         public static void RegisterRoutes(RouteCollection routes)
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
-
+            routes.MapMvcAttributeRoutes();
+           // routes.MapRoute(
+           //    name: "Default1",
+           //    url: "e/{empid}",
+           //    defaults: new { controller = "Employee", action = "Detail", empid= UrlParameter.Optional }
+           //);
+            
             routes.MapRoute(
                 name: "Default",
+                
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+            
+
         }
     }
 }

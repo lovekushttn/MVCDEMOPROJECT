@@ -2,21 +2,14 @@
 
 @{
     var emp = Model;
+    ViewBag.title = $"Employees Detail - {emp.FirstName} {emp.LastName}";
 }
 
 <!DOCTYPE html>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Detail</title>
-</head>
-<body>
     <div>
         <h1> Employee </h1>
         <h2>Id</h2> : @emp.Id
         <h2>Name</h2> : @string.Format("{0} {1}", emp.FirstName, emp.LastName)
         <h6><a href="/Home/Index">Back to home</a></h6>
     </div>
-</body>
-</html>

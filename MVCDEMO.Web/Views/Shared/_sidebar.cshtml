@@ -19,10 +19,13 @@
                 </li>
             </ul>
         </li>
-        @RenderMenu(1,"Home")
-        @RenderMenu(2,"Home 2")
+        @RenderMenu(1, "Home")
+        @RenderMenu(2, "Home 2")
         <li>
-            @Html.ActionLink("Employees","getemployees","Employee")
+            @Html.ActionLink("Employees", "getemployees", "Employee")
+        </li>
+        <li>
+            @Html.ActionLink("Department", "", "Department")
         </li>
         <li>
             <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
@@ -44,7 +47,7 @@
         <li>
             <a href="#">Contact</a>
         </li>
-        @RenderMenu(3,"Home 3")
+        @RenderMenu(3, "Home 3")
     </ul>
 
     <ul class="list-unstyled CTAs">

@@ -2,7 +2,7 @@
 @model IEnumerable<Employee>
 @{
    
-
+    ViewBag.title = "Employees List";
 }
 
     <div class="row">
@@ -14,7 +14,14 @@
                     <h5 class="card-title">Employee @emp.Id</h5>
                     <h6 class="card-subtitle mb-2 text-muted">@string.Format("{0} {1}", emp.FirstName, emp.LastName)</h6>
                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                    <a href="/Employee/Detail?empId=@emp.Id" class="card-link">Detail link</a>
+                    @*@using (Html.BeginForm("Detail", "Employee",new {empId=emp.Id}, FormMethod.Post))
+                    {
+                        <input type="submit" text="Detail link" class="card-link" />
+                    }*@
+                    <form method="post" action="@Url.Action("Detail","Employee",new {empId=emp.Id})">
+            <input type="submit" text="Detail link" class="card-link" />
+        </form>
+                    <a href="@Url.Action("Detail","Employee",new {empId=emp.Id})" class="card-link">Detail link</a>
                     <a href="/Employee/Detail?empId=@emp.Id" class="card-link">Another link</a>
                 </div>
             </div>
